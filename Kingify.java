@@ -5,7 +5,7 @@ public class Kingify {
             System.out.println(args[0] + " Da King " + args[1]);
         }
         else{
-            System.out.println("You failed, run the program again and input exactly two names");
+            System.err.println("You failed, run the program again and input exactly two names");
         }
     }
 }

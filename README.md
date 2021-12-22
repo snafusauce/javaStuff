@@ -253,3 +253,46 @@ public void resetSettings(){
   this.setVolume(0);
 }
 }
+
+
+
+INHERITTANCE 
+//use the extends keyword followed by the parent classs
+class Triangle extends Shape {
+ 
+  // additional Triangle class members
+ 
+}
+
+You can also inherit the constructor with the super keyword
+class Triangle extends Shape {
+ 
+  Triangle() {
+    super(3);
+    OR - we can also use this with the construtor name numSides
+    this.numSides = 3;
+
+  }
+
+  If you’re writing a constructor of a child class, and don’t explicitly make a call to a constructor from a parent class using super, 
+  it’s important to remember that Java will automatically (and secretly) call super() as the first line of your child class constructor.
+
+  class Shape {
+ 
+  protected double perimeter;
+ 
+}
+ 
+// any child class of Shape can access perimeter
+
+In addition to access modifiers, there’s another way to establish how child classes can interact with inherited parent class members: using the final keyword. 
+If we add final before a parent class method’s access modifier, we disallow any child classes from changing that method. This is helpful in limiting bugs that might occur from modifying a particular method.
+
+Use the override keyword on a child class method to change it, the parameters, name, and return type have to be the same
+  @Override
+  public void printBalance() {
+    System.out.println("Your checking account balance is $" + balance);
+  }
+}
+//this calls the method from the parent class, make sure to use the required parameters
+super.printBalance();

@@ -1,4 +1,4 @@
-import java.util.Scanner; 
+import java.util.*; 
 
 public class IncreaseAge {
 
@@ -11,7 +11,7 @@ public class IncreaseAge {
         while(validInput){
             try{
                 System.out.print("Hello, what is your first name? ");
-                 coolName = userInput.nextLine();
+                coolName = userInput.nextLine();
                 validInput = false;
             }
             catch(Exception error){
