@@ -1,6 +1,26 @@
 # javaStuff
+
+NOTES ON JAVA SYNTAX AND BEST PRACTICES
+
 import java.util.ArrayList; //used for array list which are better than arrays because they can change sizes
 import static java.lang.Math.*; // import Math class
+import java.util.ArrayList;
+
+declare an arraylist
+ArrayList<String> shoppingCart = new ArrayList<String>();
+shoppingCart.add("Trench Coat");
+shoppingCart.add("Tweed Houndstooth Hat");
+shoppingCart.add("Magnifying Glass");
+ 
+shoppingCart.remove(1);
+// shoppingCart now holds ["Trench Coat", "Magnifying Glass"]
+shoppingCart.remove("Trench Coat");
+//changing a value
+shoppingCart.set(0, "Tweed Cape");
+//access an arraylist
+shoppingCart.get(2)
+//check the size
+shoppingCart.size()
 
 // Random int value between 10 and 20
 int d = (int)(Math.random() * 11 ) + 10;
@@ -296,3 +316,25 @@ Use the override keyword on a child class method to change it, the parameters, n
 }
 //this calls the method from the parent class, make sure to use the required parameters
 super.printBalance();
+
+//this allows us to use kaylas account as a bank account object as well as a checking account object
+//note that this means kaylasaccount cant use methods that the parent bankaccount class doesnt have
+BankAccount kaylasAccount = new CheckingAccount(600.00);
+
+//we can put instances of different classes that share a parent class together in an array or ArrayList!
+Monster dracula, wolfman, zombie1;
+ 
+dracula = new Vampire();
+wolfman = new Werewolf();
+zombie1 = new Zombie();
+ 
+Monster[] monsters = {dracula, wolfman, zombie1};
+
+//iterate on the list of subclasses
+for (Monster monster : monsters) {
+ 
+  monster.attack();
+ 
+}
+
+//we can also use child class objects as method parameters when it's defined with a parent class
