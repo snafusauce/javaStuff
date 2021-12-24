@@ -1,40 +1,37 @@
-import java.util.*; 
+// import java.util.*;
+// Only import utilities that you need.
+// Otherwise it pollutes the namespace!
+import java.util.Scanner;
 
 public class IncreaseAge {
 
-    public static void main(String args[]){
+    public static void main(String args[]) {
         Scanner userInput = new Scanner(System.in);
-        boolean validInput = true;
-        String coolName = "Adam";
-        int coolAge = 0;
+        String coolName = "temporaryName";
+        int coolAge = -1;
 
-        while(validInput){
-            try{
-                System.out.print("Hello, what is your first name? ");
-                coolName = userInput.nextLine();
-                validInput = false;
-            }
-            catch(Exception error){
-                System.out.println("Invalid input, try again!");
-                userInput.next();
-            }
+        System.out.print("Hello, what is your first name? ");
+        while (userInput.hasNextInt()) {
+            userInput.nextLine(); // Flush the buffer
+            System.out.print("Sorry you entered an integer instead of your name.");
+            System.out.print(" Please try again. ");
         }
-        validInput = true;
-        while(validInput){
-            try{
-                System.out.print("Hi "+ coolName + "! How old are you?");
-                coolAge = userInput.nextInt();
-                validInput = false;
-            }
-            catch(Exception error){
-                System.out.println("Invalid input, try again!");
-                userInput.next();
-            }
+        coolName = userInput.next(); // Just grabs first name
+        // coolName = user.Input.nextLine(); // Grabs entire line typed by user
+        userInput.nextLine(); // Flush the buffer
+
+        System.out.print("Hi "+ coolName + "! How old are you? ");
+        while (!userInput.hasNextInt()) {
+            userInput.nextLine(); // Flush the buffer
+            System.out.print("Sorry, you did not enter a valid integer age.");
+            System.out.print(" Please try again. ");
         }
-        System.out.println("Hello "+ coolName + ", in ten years you will be " + (coolAge+10));
+        coolAge = userInput.nextInt();
+
+        System.out.println("Hello " + coolName 
+            + ", in ten years you will be " 
+            + (coolAge + 10) + "."
+        );
         userInput.close();
-
-
     }
-    
 }

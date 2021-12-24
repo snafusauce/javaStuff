@@ -1,61 +1,111 @@
+---
 # javaStuff
+---
+## Notes on Syntax and Best Practices
 
-NOTES ON JAVA SYNTAX AND BEST PRACTICES
+### Imports
++ import java.util.ArrayList; //used for array list 
++ import static java.lang.Math.*; // import Math class
++ import java.util.Scanner; //for user input
++ import java.util.Random; //for random number generator
 
-import java.util.ArrayList; //used for array list which are better than arrays because they can change sizes
-import static java.lang.Math.*; // import Math class
-import java.util.ArrayList;
+### Arraylists methods
+Data structure that is better than normal arrays because arraylists can change sizes
 
-declare an arraylist
-ArrayList<String> shoppingCart = new ArrayList<String>();
-shoppingCart.add("Trench Coat");
-shoppingCart.add("Tweed Houndstooth Hat");
-shoppingCart.add("Magnifying Glass");
- 
-shoppingCart.remove(1);
-// shoppingCart now holds ["Trench Coat", "Magnifying Glass"]
-shoppingCart.remove("Trench Coat");
-//changing a value
-shoppingCart.set(0, "Tweed Cape");
-//access an arraylist
-shoppingCart.get(2)
-//check the size
-shoppingCart.size()
+When declaring arraylists use <Integer>  <Double> and <Char> for types you would normally declare as doubles or chars.
 
-// Random int value between 10 and 20
-int d = (int)(Math.random() * 11 ) + 10;
+__Declare__ an arraylist
 
-// Importing the Random library
-import java.util.Random;
+    import java.util.ArrayList;
 
-/*     // Creating a random number generator
+    ArrayList<String> shoppingCart = new ArrayList<String>();
+
+__Add__ to an arraylist
+
+    shoppingCart.add("Trench Coat");
+    shoppingCart.add("Tweed Houndstooth Hat");
+    shoppingCart.add("Magnifying Glass");
+
+__Remove__ things from an arraylist. You can remove by index or by value; removing by value will remove only the first instance.
+
+    shoppingCart.remove(1);
+    // shoppingCart now holds ["Trench Coat", "Magnifying Glass"]
+
+    shoppingCart.remove("Trench Coat");
+
+__Update__ or __Change__ a value in an arraylist.
+
+    //changing a value
+    shoppingCart.set(0, "Tweed Cape");
+
+__Access__ an arraylist.
+
+    //access an arraylist
+    shoppingCart.get(2)
+
+Check the __size__ of an arraylist.
+
+    //check the size
+    shoppingCart.size()
+
+__Traverse__ an arraylists
+
+    //traverse an arrayList
+    for (int i = 0; i < secretCode.size(); i++) {
+        // Increase value of element value by 1
+        int num = secretCode.get(i);
+        secretCode.set(i, num + 1);
+      }
+
+### Random Numbers
+
+
+Required library.
+
+    // Importing the Random library
+    import java.util.Random;
+
+First create a random generator object
+
+    // Creating a random number generator
     Random randomGenerator = new Random();
-    
+Pass it into a variable by calling the nextInt() method with the required number. Add one since it stats at 0.
+
     // Generate a number between 1 and 6
     int dieRoll = randomGenerator.nextInt(6) + 1;
 
-*/
-class classes {
-    public class Dog{
-        private String name;
-       
-        //Other methods and constructors
-       
-        public String getName() {
-          return name;
-        }
-      }
-      /*Even though the instance variable name is private, other classes could call the public method getName() 
-      which returns the value of that instance variable. Accessor methods will always be public, and will have 
-      a return type that matches the type of the instance variable they’re accessing. */
+### Classes
+Classes are blueprints for objects and enable the creation of custom methods, subclasses, and fat data types.
 
-      /* Similarly, private instance variables often have mutator methods (sometimes known as “setters”). 
-      These methods allow other classes to reset the value stored in private instance variables. */
+    class classes {
+
+        // a blueprint for a dog
+        public class Dog{
+
+            //A class field or attribute, something you fill later
+            private String name;
+       
+            //Other methods and constructors
+            public String getName() {
+              return name;
+            }
+            //These methods are basically functions for the class objects
+          }
+
+__Private__ fields and methods are only accessible by the class they're a part of.
+
+__BUT__ in the example above even though the field variable 'name' is private, other classes can call the public method __getName()__.
+
+This returns the value of that instance variable. 
+
+Accessor methods will always be public and will have a return type that matches the type of the instance variable they’re accessing.
+
+Similarly, private instance variables often have __mutator methods__ (sometimes known as “setters”). These methods allow other classes to reset the value stored in private instance variables.
+
       public class Dog{
         private String name;
        
-        //Other methods and constructors
-       
+        //setter method
         public void setName(String newName) {
           name = newName;
         }
@@ -66,35 +116,11 @@ class classes {
         }
       }
 }
-class arraylists {
 
-//declare a new array list
-ArrayList<String> shoppingCart = new ArrayList<String>();
+### Loops
 
-//  When declaring arraylists use <Integer>  <Double> and <Char> for types you would normally declare as doubles or chars.
+__While__ loops, make sure to create a condition that allows an escape to the loop. e.g. a counter
 
-// add stuff to an array list
-shoppingCart.add("Trench Coat");
-
-//replace something in an array list
-shoppingCart.set(0, "Tweed Cape");
-
-//get the object at index 2
-System.out.println(shoppingCart.get(2));
-
-//get the index size
-shoppingCart.size();
-
-//remove an item using the index or the value
-shoppingCart.remove(1);
-//this command removes only the first instance of trench coat
-shoppingCart.remove("Trench Coat");
-
-//find the index of something
-shoppingCart.indexOf("Trench Coat");
-}
-
-class loops {
     //while loop example
     int wishes = 0;
     while (wishes < 3) {
@@ -104,6 +130,8 @@ class loops {
         wishes++;
        
       }
+__For__ loops
+
     //for loop example
     int sum = 0;
     for (int i = 0; i <= 10; i++) {
@@ -338,3 +366,8 @@ for (Monster monster : monsters) {
 }
 
 //we can also use child class objects as method parameters when it's defined with a parent class
+//this will print the error in red
+  catch(ArithmeticException e){
+      System.err.println("ArithmeticException: " + e.getMessage());
+
+// use command + / to comment out blocks of code
