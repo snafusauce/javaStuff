@@ -8,6 +8,9 @@
 + import static java.lang.Math.*; // import Math class
 + import java.util.Scanner; //for user input
 + import java.util.Random; //for random number generator
+---
+### General
++ Use __command__ and _/_ to comment out blocks of code
 
 ### Arraylists methods
 Data structure that is better than normal arrays because arraylists can change sizes
@@ -56,7 +59,7 @@ __Traverse__ an arraylists
         int num = secretCode.get(i);
         secretCode.set(i, num + 1);
       }
-
+---
 ### Random Numbers
 
 
@@ -73,7 +76,7 @@ Pass it into a variable by calling the nextInt() method with the required number
 
     // Generate a number between 1 and 6
     int dieRoll = randomGenerator.nextInt(6) + 1;
-
+---
 ### Classes
 Classes are blueprints for objects and enable the creation of custom methods, subclasses, and fat data types.
 
@@ -114,10 +117,10 @@ Similarly, private instance variables often have __mutator methods__ (sometimes 
           Dog myDog = new Dog("Cujo");
           myDog.setName("Lassie");
         }
-      }
-}
-
+      }}
+---
 ### Loops
+Loops can exist all throughout our code - including inside a method. 
 
 __While__ loops, make sure to create a condition that allows an escape to the loop. e.g. a counter
 
@@ -137,6 +140,7 @@ __For__ loops
     for (int i = 0; i <= 10; i++) {
     sum += i
     }
+For loops help with __traversing__ data structures.
 
     //traverse an array
     for (int i = 0; i < secretCode.length; i++) {
@@ -149,7 +153,9 @@ __For__ loops
         int num = secretCode.get(i);
         secretCode.set(i, num + 1);
       }
-    
+
+Using __break;__ to end for loops.
+
     //break out and end the loop
     for (int i = 0; i < 10; i++) {
         System.out.println(i);
@@ -157,6 +163,9 @@ __For__ loops
           break;
         }
       }
+
+Using __continue;__ to end a specific iteration in the loop
+
     //continue and skip a specific iteration, but continue with the loop
     for (int i = 0; i < numbers.length; i++) {
         if (numbers[i] % 2 == 0) {
@@ -164,9 +173,10 @@ __For__ loops
         }
         System.out.println(numbers[i]);
       }
-    //Loops can exist all throughout our code - including inside a method. 
-    //If the return keyword was executed inside a loop contained in a method, 
-    //then the loop iteration would be stopped and the method/constructor would be exited.
+
+
+If the __return__ keyword was executed inside a loop contained in a method, then the loop iteration would be stopped and the method/constructor would be exited.
+
     public static boolean checkForJacket(String[] lst) {
         for (int i = 0; i < lst.length; i++) {
           System.out.println(lst[i]);
@@ -177,38 +187,41 @@ __For__ loops
         return false;
       } 
 
-      /******
-      For-each loops, which are also referred to as enhanced loops, 
-      allow us to directly loop through each item in a list of items 
-      (like an array or ArrayList) and perform some action with each item.
-       */
+__For-each loops__, which are also referred to as enhanced loops, allow us to directly loop through each item in a list of items (like an array or ArrayList) and perform some action with each item.
+    
       for (String inventoryItem : inventoryItems) {
           //We can read the : as “in” like this: 
+
           //for each inventoryItem (which should be a String) in inventoryItems, print inventoryItem.
+
         // Print element value
-        System.out.println(inventoryItem);
-       //NOTE that the values will not change because this is only a copy of the variable
-       //Note: 
-       //We can name the enhanced for loop variable whatever we want; using the singular of a plural is just a convention. 
-       //We may also encounter conventions like String word : sentence.
-      }
+        System.out.println(inventoryItem);  }
 
-    /* a note on removing elements
-    Removing Elements During Traversal
-    **When using a while loop and removing elements from an ArrayList,
-     we should not increment the while loop’s counter whenever we remove an element. 
-     We don’t need to increase the counter because all of the other elements have now shifted to the left.
+__NOTE__ that the values will not change because this is only a copy of the variable
+ 
+We can name the enhanced for loop variable whatever we want; using the singular of a plural is just a convention. 
 
-    ** For loops always increase so you need to decrease by 1 
-        // Decrease loop control variable by 1
-    i--;  
+We may also encounter conventions like 
 
-    **avoid messing with enhanced for loops
-    */
-    //Remove exaple with array list
+    String word : sentence.
+    
+__Removing Elements During Traversal__
+
+When using a while loop and removing elements from an ArrayList, we should not increment the while loop’s counter whenever we remove an element. 
+
++ We don’t need to increase the counter because all of the other elements have now shifted to the left and incrementing the counter will cause a logical error.
+
+For loops always increase so you need to decrease by 1 
+- Avoid messing with enhanced for loops
+
+Example
+
+    //Remove with array list
     for(int i = 0; i < lunchBox.size();i++){
         if(lunchBox.get(i) == "ant"){
           lunchBox.remove(i);
+          
+          //here is where you need to decrement
           i--;
         }
       }
@@ -216,17 +229,20 @@ __For__ loops
      }
 }
 
-class stringMethods {
-/* List of methods
-length(): 
-concat(): 
+### String Methods
+List of methods
+
+1. length(): 
+2. concat(): 
+        
         String name = new String("Code");
         
         name = name.concat("cademy");
         
-        System.out.println(name);
+        System.out.println(name);//prints codeacademy
 
-equals(): Side note, there’s also an equalsIgnoreCase() method that compares two strings without considering upper/lower cases.
+3. equals(): Side note, there’s also an __equalsIgnoreCase()__ method that compares two strings without considering upper/lower cases.
+
         String flavor1 = "Mango";
         String flavor2 = "Peach";
         
@@ -236,33 +252,41 @@ equals(): Side note, there’s also an equalsIgnoreCase() method that compares t
         System.out.println(flavor2.equals("Mango"));
         // prints false
 
-indexOf(): If the indexOf() doesn’t find what it’s looking for, it’ll return a -1.
-    String letters = "ABCDEFGHIJKLMN";
-    System.out.println(letters.indexOf("C")); 
-    returns 2
+4. indexOf(): If the indexOf() doesn’t find what it’s looking for, it’ll return a -1.
 
-    String letters = "ABCDEFGHIJKLMN";
-    System.out.println(letters.indexOf("EFG"));
-    returns 4 because EFG starts at 4
++ Finding an index:
 
-charAt(): returns the character located at a String‘s specified index.
-    String str = "qwer";
-    System.out.println(str.charAt(2));
+        String letters = "ABCDEFGHIJKLMN"; 
+        System.out.println(letters.indexOf("C")); 
+        returns 2
 
-substring(): It would output Constellations rung because that’s what begins at index 24 
-//and ends at the end of line. The substring begins with the character at the specified index
-//and extends to the end of the string.
-        String line = "The Heav'ns and all the Constellations rung";
-        System.out.println(line.substring(24));
++ Index of a String:
 
-    For the middle of the string use:
+        String letters = "ABCDEFGHIJKLMN";
+        System.out.println(letters.indexOf("EFG"));
+        returns 4 because EFG starts at 4
+
+5. charAt(): returns the character located at a String‘s specified index.
+
+        String str = "qwer";
+        System.out.println(str.charAt(2));
+
+6. substring(): cuts everything before a certain index. The substring begins with the character at the specified index
+
+       String line = "The Heav'ns and all the Constellations rung";
+       System.out.println(line.substring(24));
+
++ For the __middle of the string__ use:
+
         String line = "The Heav'ns and all the Constellations rung";
         System.out.println(line.substring(27, 33));
-        the first argument is inclusive and the second is exclusive. 
-        This means the resulting substring will begin at index 27 and extend up to, but not including, index 33. 
-        Therefore, the example above would output stella
+        //the first argument is inclusive and the second is exclusive. 
+        
+        //This means the resulting substring will begin at index 27 and extend up to, but not including, index 33. 
+        //Therefore, the example above would output stella
 
-toUpperCase() / toLowerCase():
+7. toUpperCase() / toLowerCase():
+        
         String input = "Cricket!";
         
         String upper = input.toUpperCase();
@@ -271,103 +295,118 @@ toUpperCase() / toLowerCase():
         String lower = input.toLowerCase();
         // stores "cricket!"
 
-*/
+---
+### Scope Stuff
+Using an instance variable with the same name as a local variable
 
-//how to use an instance variable vs a local variable, by default it's the local variable
-public String name;
+      //how to use an instance variable vs a local variable, by 
+      default it's the local variable
+      public String name;
  
-public Dog(String inputName){
-  name = inputName;
-}
+      public Dog(String inputName){
+      name = inputName;
+      }
 
-public void speakNewName(String name){
-  System.out.println("Hello, my new name is" + this.name);
-}
+      public void speakNewName(String name){
+      System.out.println("Hello, my new name is" + this.name);
+      }
 
-//use this to call mother methods inside a method, this saves time - basically we don't have to pass in the parameters
-public int brightness;
-public int volume;
+Use __this__ keyword to call methods inside methods, this saves time - basically we don't have to pass in the parameters
 
-public void setBrightness(int inputBrightness){
-  this.brightness = inputBrightness;
-}
+Example:
 
-public void setVolume(int inputVolume){
-  this.volume = inputvolume;
-}
+     public int brightness;
+     public int volume;
 
-public void resetSettings(){
-  this.setBrightness(0);
-  this.setVolume(0);
-}
-}
+     public void setBrightness(int inputBrightness){
+     //this sets the objects brightness to whatever was passed in
+     this.brightness = inputBrightness;
+     }
 
+Example 2
 
+    public void setVolume(int inputVolume){
+    this.volume = inputvolume;
+    }
 
-INHERITTANCE 
-//use the extends keyword followed by the parent classs
-class Triangle extends Shape {
- 
-  // additional Triangle class members
- 
-}
+Example 3: we call a method with this, which calls the earlier method which also uses the this keyword
+
+    public void resetSettings(){
+    this.setBrightness(0);
+    this.setVolume(0);
+     }
+---
+### INHERITANCE 
+Use the __extends__ keyword followed by the parent class to inherit methods and attributes
+
+        class Triangle extends Shape {
+        
+        // additional Triangle class members }
 
 You can also inherit the constructor with the super keyword
-class Triangle extends Shape {
- 
-  Triangle() {
-    super(3);
-    OR - we can also use this with the construtor name numSides
+
+    class Triangle extends Shape {
+         Triangle() {
+             super(3);}
+OR - we can also use __this__ with the construtor name numSides
+
     this.numSides = 3;
 
-  }
 
-  If you’re writing a constructor of a child class, and don’t explicitly make a call to a constructor from a parent class using super, 
+__This__ calls the method from the parent class, make sure to use the required parameters
+
+
+If you’re writing a constructor of a child class, and don’t explicitly make a call to a constructor from a parent class using super, 
   it’s important to remember that Java will automatically (and secretly) call super() as the first line of your child class constructor.
 
-  class Shape {
+    class Shape {
  
-  protected double perimeter;
+    protected double perimeter;
  
-}
+    }
  
-// any child class of Shape can access perimeter
+    //Any child class of Shape can access perimeter with the protected keyword
 
-In addition to access modifiers, there’s another way to establish how child classes can interact with inherited parent class members: using the final keyword. 
-If we add final before a parent class method’s access modifier, we disallow any child classes from changing that method. This is helpful in limiting bugs that might occur from modifying a particular method.
+In addition to access modifiers, there’s another way to establish how child classes can interact with inherited parent class members: using the __final__ keyword. 
 
-Use the override keyword on a child class method to change it, the parameters, name, and return type have to be the same
-  @Override
-  public void printBalance() {
-    System.out.println("Your checking account balance is $" + balance);
-  }
-}
-//this calls the method from the parent class, make sure to use the required parameters
-super.printBalance();
+If we add final before a parent class method’s access modifier, we disallow any child classes from changing that method. 
 
-//this allows us to use kaylas account as a bank account object as well as a checking account object
-//note that this means kaylasaccount cant use methods that the parent bankaccount class doesnt have
-BankAccount kaylasAccount = new CheckingAccount(600.00);
+This is helpful in limiting bugs that might occur from modifying a particular method.
 
-//we can put instances of different classes that share a parent class together in an array or ArrayList!
-Monster dracula, wolfman, zombie1;
+Use the __override__ keyword on a child class method to change it
++ The parameters, name, and return type have to be the same 
+
+Example
+
+    @Override
+    public void printBalance() {
+        System.out.println("Your checking account balance is $" + balance);
+        }
+  
+We can put instances of different classes that share a parent class together in an array or ArrayList!
+Example
+
+    Monster dracula, wolfman, zombie1;
  
-dracula = new Vampire();
-wolfman = new Werewolf();
-zombie1 = new Zombie();
+    dracula = new Vampire();
+    wolfman = new Werewolf();
+    zombie1 = new Zombie();
  
-Monster[] monsters = {dracula, wolfman, zombie1};
+    Monster[] monsters = {dracula, wolfman, zombie1};
 
-//iterate on the list of subclasses
-for (Monster monster : monsters) {
+    //iterate on the list of subclasses
+    for (Monster monster : monsters) {
  
-  monster.attack();
+      monster.attack();
  
-}
+    }
 
-//we can also use child class objects as method parameters when it's defined with a parent class
-//this will print the error in red
-  catch(ArithmeticException e){
+We can also use child class objects as method parameters when it's defined with a parent class
+
+---
+### Error Handling
+
+    //this will print the error in red
+      catch(ArithmeticException e){
       System.err.println("ArithmeticException: " + e.getMessage());
 
-// use command + / to comment out blocks of code
