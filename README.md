@@ -375,8 +375,8 @@ This is helpful in limiting bugs that might occur from modifying a particular me
 
 Use the __override__ keyword on a child class method to change it
 + The parameters, name, and return type have to be the same 
-
-Example
+vxcvcxv
+Exampledfvdfbdfbdbdbvvvvvdfdfsddrrr333331112221212`                                 hi thanks for letting me know what was goiung on 
 
     @Override
     public void printBalance() {
@@ -399,7 +399,7 @@ Example
  
       monster.attack();
  
-    }
+    }hf
 
 We can also use child class objects as method parameters when it's defined with a parent class
 

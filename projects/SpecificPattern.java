@@ -1,3 +1,4 @@
+package projects;
 public class SpecificPattern {
 
     public static void main(String[ ] args){

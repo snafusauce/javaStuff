@@ -1,3 +1,4 @@
+package projects;
 public class Kingify {
     
     public static void main(String[] args){

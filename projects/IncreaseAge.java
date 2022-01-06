@@ -1,3 +1,4 @@
+package projects;
 // import java.util.*;
 // Only import utilities that you need.
 // Otherwise it pollutes the namespace!
