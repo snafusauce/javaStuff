@@ -44,7 +44,7 @@ public class PlayerDriver {
         //outer while loop to force the user into a valid input range
         while(x < 0 || x >10){
             
-            //inner loop to check for valin input type
+            //inner loop to check for valid input type
             while (!scan.hasNextInt()) {
                 scan.nextLine(); // Flush the buffer
                 System.out.print("Sorry, please enter an integer between 0 and 10: ");
@@ -102,8 +102,8 @@ public class PlayerDriver {
                 System.out.print("You've entered a color unknown to this universe, please try again!! ");
             }
         }
-
-        playerList.get(i).setColor(colorIndex); //calling the getGoodCrayon function to ensure valid input
+        //set the color to it's index
+        playerList.get(i).setColor(colorIndex);
         System.out.println("\nThank you!");
 
     }
@@ -128,7 +128,7 @@ public class PlayerDriver {
 
     //ensures level input type and range is valid
     public static void getGoodLevel(int i){
-        //hand info
+        //level info
         System.out.print("What level is the " + places[i] + " player? ");
         
         //call the input function to validate the input and set the player level
@@ -136,7 +136,7 @@ public class PlayerDriver {
 
         }
 
-    //this function loops through the user count to create a payer object insude the PlayerList arrayList
+    //this function loops through the player count to create a payer object inside the PlayerList 
     public static void looper(int count){
 
         if(count == 0){
@@ -157,12 +157,10 @@ public class PlayerDriver {
             getGoodLevel(i);
             //validate and set color
             getGoodCrayon(i);
-       
         }
-
     }
 
-    //loops through all of the provided objects
+    //loops through all of the provided objects and recaps stats
     public static void recap(int count){
         //used for friendly text
         String[] playerCounts = {
